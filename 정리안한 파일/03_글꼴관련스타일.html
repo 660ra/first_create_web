@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.글꼴 관련 스타일</title>
+
+    <style>
+        /* #id로 선택*/
+        #ff1{font-family: 궁서체;}
+        #ff2{font-family: 고딕체;}
+        #ff3{font-family:'Courier New', Courier, monospace  }
+
+        /* em: 배수표현(font-size 30px 이면 1.5em => 60px 가 됨) */
+        #fs1{font-size: 30px;}
+        #fs2{font-size: 1.5em;}
+        #fs3{font-size: 150%;}
+
+        /* font-weight : 100 이 제일 작은 수 */
+        #fw1{font-weight: bold;}
+        #fw2{font-weight: 900;} 
+        #fw3{font-weight: 100;}
+    </style>
+</head>
+<body>
+    
+    <h1>글꼴 관련 스타일 속성(font~)</h1>
+    <h3>1. font-family: 글꼴을 지정할 때 사용</h3>
+    <p id="ff1"> 글꼴 테스트1</p>
+    <p id="ff2"> 글꼴 테스트2</p>
+    <p id="ff3"> 글꼴 테스트3</p>
+    <br>
+    <hr>
+
+    <h3>2. font-size: 글꼴의 큭를 변경할 때 사용</h3>
+    <ul>
+        <li id="fs1">고정크기 px 테스트</li>
+        <li id="fs2">가변길이 em 테스트</li>
+        <li id="fs3">가변길이 % 테스트</li>
+    </ul>
+    <br>
+    <hr>
+
+    <h3>3. font-weight: 글꼴의 굵기를 표현할 때 사용</h3>
+    <ul>
+        <li style="font-weight: normal;"> 원래 굵기</li>
+        <li id="fw1">굵은 글꼴로 변경</li>
+        <li id="fw2">원래 굵기 보다 더 굵게</li>
+        <li id="fw3">원래 굵기 보다 더 가늘게</li>
+    </ul>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

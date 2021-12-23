@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.연습문제</title>
+</head>
+<body>
+    <h1>산술연산자 </h1>
+    <h3>이것이 자바다. 교재 p.78 참고
+    <br><br>
+
+    <button onclick="test1();">확인</button>
+    <br>
+
+    <div id="area1" class="area"></div>    
+    <br>
+
+    <script>
+        function test1(){            
+            var v1 = 5;
+            var v2 = 2;
+
+            var result1 = v1 + v2;
+            var result2 = v1 - v2;
+            var result3 = v1 * v2;
+            var result4 = Math.floor(v1 / v2);
+            var result5 = v1 % v2;
+            var result6 = v1 / v2;
+
+            //'+' 는 문자가 있는 경우(예:"result1= " ) 연산이 안되고
+            //문자로 생각함 (결과값 잘못나옴)
+            //console.log("result1= " + v1+v2);     52
+
+            console.log("result1= " + result1);  // 7
+            console.log("result2= " + result2);
+            console.log("result3= " + result3);
+            console.log("result4= " + result4);
+            console.log("result5= " + result5);
+            console.log("result6= " + result6);
+            
+        }
+
+    </script>
+    
+</body>
+</html>

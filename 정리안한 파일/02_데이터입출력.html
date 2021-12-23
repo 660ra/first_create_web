@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.데이터 입출력</title>
+    <style>
+        .area{
+            border: 1px solid black;
+            width: 300px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>데이터 입출력</h1>
+    <!--
+        데이터 입력:
+            1) [window.]confirm
+            2) [window.]prompt
+            3) input 태그  <input type="text">
+        데이터 출력:
+            1) [window.]alert 
+            2) document.write
+            3) 요소.innerHtml
+            4) 요소.innerText
+    -->
+
+    <!-- 
+        window: 자바스크립트 내장 객체로 브라우저 창이 열릴때마다
+                하나씩 만들어지는 객체. 모든 요소들의 최상위 객체
+        document : 웹 문서마다 하나씩 만들어지는 객체
+                    body 태그에 의해서 만들어짐
+
+    -->
+    <h2>1. 데이터를 출력</h2>
+    <h3> 1) [window.]alert("알림창 출력할 문구");</h3>
+
+    <script>
+        window.onload = function() {
+            //window.alert("alert 출력");
+            //alert("alert 출력");
+        }
+    </script>
+
+    <h3>2. document.write("브라우저 화면에 출력할 문구")</h3>
+    <button onclick="btnTest2();"> 확인</button>
+
+    <script>
+        function btnTest2(){
+            document.write("document.write 은 화면 내용을 덮어씀");
+            document.write("<br><b> 테이블 태그도 사용 가능함 </b></br>");
+
+            //var 는 변수타입 (자바스크립트에서는 따로 구분 안함)    
+            //화면에 출력할 문자열에 html 태그가 있을 경우 진짜 html 태그로 해석되어 보여짐        
+            var table = "<table border='1'>";
+                table += "<tr> ";    // talbe = table + ..
+                table += "<td>100</td>";
+                table += "<td>200</td>";
+                table += "</tr> "; 
+                table += "</table> "; 
+
+          document.write(table);      
+        }
+    </script>
+
+    <h3>3. 요소.innerHtml = "해당요소에 출력할 문구";</h3>
+    <div class="area" id="area1" > </div>
+
+    <button onclick="btnTest3();">확인</button>
+    <script>
+        function btnTest3() {
+        alert("btnTest3");
+            //var divE1 = document.getElementById("area1");
+
+            //보는방법: 크롬 -> F12 -> console 탭
+            //console.log(divE1);
+
+            //id 값 가져오기
+            //console.log(divE1.id);
+            //console.log(divE1.className);
+
+            //innerHTML  : 요소의 context 영역 안의 html 태그까지 다 포함
+            //console.log(divE1.innerHTML);
+
+            //innerText: 요소의 context 영역 안의 텍스트만 포함(html 태그 포함안됨)
+            //console.log(divE1.innerText);
+
+        }
+    </script>
+
+    <hr>
+
+    <h2>2.데이터 입력</h2>
+    <h3>1) [window.]confirm("질문내용") </h3>
+    <!-- 
+        confirm 은 "질문내용" 과 "확인/취소" 버튼이 존재하는 알림창
+        확인 버튼 클릭시 true, 취소 버튼 클릭시 false 를 반환함
+    -->
+
+    <button onclick="testConfirm();" >확인</button>
+    <div class="area" id="area2"></div>
+
+    <script>
+        function testConfirm() {
+            var result = confirm("맞으면 확인, 아니면 취소를 누르세요.")
+            var divE1 = document.getElementById("area2");
+
+            if(result) {
+                divE1.innerHTML = "<h2> 확인 했습니다.</h2>";
+            } else {
+                divE1.innerText = "<h2> 취소 했습니다.</h2>";
+            }
+        }
+    </script>
+
+    <h3>2. [window.]prompt("질문내용");</h3>
+    <!--
+        prompt 은 "질문내용" 과 입력할 수 있는 "텍스트 상자" 
+        "확인/취소" 버튼이 보여지는 알람창 
+        1) 확인 버튼 클릭시 텍스트 상자에 입력 되어 있는 값이 반환
+        2) 취소 버튼 클릭시 null 을 반환함
+    -->
+
+    <button onclick="testPrompt();" >확인</button>
+    <div class="area" id="area3"></div>
+    <!--              속성 = 속성값-->
+
+    <script>
+        function testPrompt() {
+            var name = prompt("당신의 이름은 무엇입니까?");
+            var age = prompt("당신의 나이는 몇살입니까?");
+
+            var divE1 = document.getElementById("area3");
+            divE1.innerHTML = "<b>당신의 나이는 " + age + " 살이고 "+name+" 님 입니다. </b>";   
+            // system.out.println("당신의 나이는 "+ age + " 살이고 "+name+" 님 입니다.");
+            //                 "내가 입력한 문자열(하드코딩)"  + age(변수)+
+            
+        }
+    </script>
+
+    <h3> 3. input요소.value</h3>    
+    아이디: <input type="text" id="userId" > <br>
+    비밀번호 : <input type="text" name="userPw" > <br>
+
+    <button onclick="testInput();"> 확인</button>
+
+    <script>
+        function testInput() {
+            var input1 = document.getElementById("userId");
+            var input2 = document.getElementsByName("userPw")[0];
+
+            console.log(input1.value);
+            console.log(input2.value);
+
+            // 에러나고 있음 ㅠㅠ
+            var input3 = document.getElementById("userId").value;
+            var input4 = document.getElementsByName("userPw")[0].value;
+
+            console.log(input3);
+            console.log(input4);
+
+        }
+    </script>
+
+    
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

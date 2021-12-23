@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.영역관련스타일</title>
+
+    <style>
+        .test{
+            border: 5px solid blue;
+            width: 100px;
+            height: 100px;
+            background: lightskyblue;
+        }
+
+        /*
+        #test1{
+            padding:100px;
+        }
+
+        #test2{
+            padding-top: 50px;
+            padding-left: 100px;
+        }
+        */
+
+        /* 시계방향(위에서부터): top right bottom left */
+        #test3{
+            padding: 50px 20px 10px 0px;
+        }
+
+        #test4{
+            margin: 50px;
+        }
+        #test5{
+            margin-top: 50px;
+            margin-left: 20px;
+        }
+        /* 시계방향(위에서부터): top right bottom left */
+        #test6{
+            margin: 50px 30px 20px 0px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    
+    <h1>영역 관련 스타일</h1>
+
+    <h3>1. padding</h3>
+    <!-- 컨텐츠영역(content)과 테두리영역(border) 사이의
+        거리(여백)를 조절하는 스타일 속성 -->
+
+    <div id="test1" class="test">컨텐츠 영역</div>    
+    <b>padding: 100px</b>
+    <br><br>
+
+    <div id="test2" class="test">컨텐츠 영역</div>
+    <b>padding-top: 50px; padding-left: 100px</b>
+    <br><br>
+
+    <div id="test3" class="test">컨텐츠 영역</div>
+    <b>padding: 50px 20px 10px 0px</b>
+    <br><br>
+    <hr>
+
+    <h3>2. margin</h3>
+    <!-- box레벨이나 inline 레벨의 요소들간의 간격을
+        조절하는 속성--> 
+    <div id="test4" class="test"> 컨텐츠 영역</div>
+    <b>margin: 50px</b>
+    <br><br>
+
+    <div id="test5" class="test"> 컨텐츠 영역</div>
+    <b>margin-top 50px; margin-left:20px;</b>    
+    <br><br>
+
+    <div id="test6" class="test"> 컨텐츠 영역</div>
+    <b>margin: 50px 30px 20px 0px</b>
+    <br>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

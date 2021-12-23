@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML 종합 실습 문제2</title>
+</head>
+<body>
+    <h1>삼송전자</h1>
+
+    <form method="get">
+        <fieldset>
+            <legend>고객 정보</legend>
+            <ol>
+                <li><label> 고객명 : </label><input type="text" name="userNm" placeholder="name"></li><br>
+                <li><label> email : </label><input type="email" name="email" placeholder="hong@naver.com"></li><br>
+                <li><label> 홈페이지 : </label><input type="url" name="homepage" placeholder="http://"></li>
+            </ol>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>상품정보</legend>
+            <ul>
+                <li><label> 상품명 : </label><input type="text" name="item"></li><br>
+                <li><label> 상품수량 : </label><input type="number" name="amount" min="100" placeholder="최소 100"></li><br>
+                <li><label> 상품등급 : </label><input type="range" name="grade"></li><br>
+                <li><label> 기타사항 : </label><textarea rows="2" name="etc" ></textarea></li>
+            </ul>
+        </fieldset>
+        <br>
+
+        <button type="button">등록</button>
+    </form>
+</body>
+</html>

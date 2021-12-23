@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>변수와 자료형</h1>
+    <h3>1. 변수 선언 위치에 따른 전역변수/지역변수</h3>
+    <pre>
+        var 변수명;         // 전역변수 (global)
+        변수명;             // 전역변수 (global)
+
+        function 함수명(){
+            var 변수명;     // 지역변수 (local)
+            변수명;         // 전역변수 (global)
+        }  
+        
+    </pre>
+
+    <button onclick="test();">확인</button>
+
+    <script> 
+    window.onload = function() {   
+        var str = "var 전역변수(global)";
+        str2 = "전역변수(global)";   //자동으로 window 객체의 필드로 잡힘
+
+        console.log("함수 밖에서 호출 str :: "+str);
+        console.log("함수 밖에서 호출 str2 :: "+str2);
+      
+        //지역변수명과 전역변수명이 동일한 변수 호출시 지역변수가 
+        //먼저 호출됨
+        function test(){
+            str;
+            var str2 = "지역변수(local)";    
+            
+            console.log("함수 안에서 호출 str :: "+str);
+            console.log("함수 안에서 호출 str2 :: "+str2);            
+        }
+    };
+    
+    </script>
+    <br><br>
+    <hr>
+
+    <h3>2. 자료형</h3>
+    <!-- 
+    <p>
+        변수 선언시 자료형을 별도로 지정하지 않음 (자료형의 개념이 없는건 아님!!) <br>
+        => 변수에 대입되는 값(리터럴)에 따라서 알아서 자료형이 자동으로 결정됨
+    </p>
+    -->
+
+    <h4>자바스크립트의 자료형</h4>
+    <ul>
+        <li>string(문자열)</li> <!-- 쌍따옴표, 홀따옴표 -->
+        <li>number(숫자)</li>   <!-- 정수, 실수 -->
+        <li>boolean(논리값)</li>
+        <li>object(객체)</li>  <!-- 배열 -->
+        <li>function(함수)</li>
+        <li>undefined(초기화가 안된 변수)</li>
+    </ul>
+
+    <button onclick="typeTest();">확인</button>
+    <div id="area" style="border:1px solid black;"></div>
+    
+    <script>    
+    function typeTest(){
+    
+        //String name = "홍길동";
+        var name = "홍길동";  //string(문자열)
+
+        //int age = 20;
+        var age = 20;         //number(숫자)
+
+        //boolean flage = true;
+        var flag = true;      //boolean(논리값)
+    
+        //<input type="checkbox" name="hobboy" value="영화">
+        //<input type="checkbox" name="hobboy" value="음악">
+        //<input type="checkbox" name="hobboy" value="낮잠">
+
+        //             0       1       2 (컴퓨터)
+        //             1       2       3 (사람)
+        var hobby = ["영화", "음악", "낮잠"]; //object(객체) 배열 
+       
+        //익명함수(대입하는 함수는 보통 이름 안지음)
+        var testFn = function (){  
+            alert("변수와 자료형");
+        };
+        
+        var noVal;   //undefined(초기화가 안된 변수)
+
+        var divEl = document.getElementById("area");
+    
+        // 자료형 확인시 사용되는 함수 : typeof(변수명)
+        divEl.innerHTML = name + "의 자료형 : " + typeof(name) + "<br>";
+        divEl.innerHTML += age + "의 자료형 : " + typeof(age) + "<br>";
+        divEl.innerHTML += flag + "의 자료형 : " + typeof(flag) + "<br>";
+        divEl.innerHTML += hobby + "의 자료형 : " + typeof(hobby) + "<br>";
+        divEl.innerHTML += testFn + "의 자료형 : " + typeof(testFn) + "<br>";
+        divEl.innerHTML += noVal + "의 자료형 : " + typeof(noVal) + "<br>";
+        divEl.innerHTML += divEl + "의 자료형 : " + typeof(divEl) + "<br>";
+    
+        // 객체 내부의 속성에 접근 => .으로 접근
+        divEl.innerHTML += name + "의 나이는 " + age + "살이며 취미는 " 
+        + hobby +"입니다";    
+       }
+        </script>
+        <br>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+</body>
+</html>
