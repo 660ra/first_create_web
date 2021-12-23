@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. 기본선택자</title>
+
+    <style>
+        pre {
+            color: aquamarine;
+        }
+
+        p {
+            color: blueviolet;
+        }
+
+        #id1 {
+            color: cadetblue;
+            background-color: cornflowerblue;
+        }
+        #id2 {
+            color: darkcyan;
+            background-color: darkmagenta;
+        }
+        .class1{
+            color: darksalmon;
+        }
+        .test {
+            font-size: 30px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <h3>선택자</h3>
+
+    <h3>1. 모든(전체) 선택자(*)</h3>
+    <pre>요소 전체 선택할 때 사용</pre>
+    <hr>
+
+    <h3>2. 태그 선택자(태그명)</h3>
+    <p>태그명으로 선택</p>
+    <hr>
+
+    <h3>3. 아이디 선택자(#아이디명)</h3>
+    <ol>
+        <li id="id2">아이디 선택자</li>
+        <id>아이디 선택자</id><br>
+        <id>아이디 선택자</id><br>
+        <id>아이디 선택자</id><br>
+        <id>아이디 선택자</id><br>
+    </ol>
+
+    <h3>4. 클래스 선택자(.클래스명)</h3>
+    <ul>
+        <li class="class1">클래스 선택자1</li>
+        <li class="test">클래스 선택자2</li>
+        <li class="class1 test">클래스 선택자3(클래스1, test 두개 스타일 모두 출력)</li>
+        <li>클래스 선택자4</li>
+        <li class="class1">클래스 선택자5</li>
+    </ul>
+
+    <!--모든 태그 내에 공통적으로 쓸 수 있는 속성: id, class
+        id: 문서 내에 "고유"한 값으로 "하나"만을 작성(중복 불가!)
+        class: "중복"된 값 작성 가능, "여러개" 작성 가능-->
+</body>
+</html>

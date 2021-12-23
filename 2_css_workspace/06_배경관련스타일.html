@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6. 배경 관련 스타일</title>
+
+    <style>
+        body{background-color: crimson;}
+/* width: 50%
+    컨텐츠만 포함해서 body의 50% 차지 */
+        #div-bg{
+            background-color: cyan;
+            border: 20px solid lightcoral;
+            padding: 20px;
+            width: 50%;
+        }
+
+        #bg-img{
+            border: 1px solid black;
+            width: 70%;
+            height: 500px;
+
+            background-image: url("resources/image/img1.png");
+            background-attachment: fixed;
+            background-size: 50% 50%;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+        }
+
+
+
+    </style>
+
+
+
+</head>
+<body>
+    
+    <h1>배경관련 스타일(bcakground~)</h1>
+    <h3>1. 배경색을 지정하고자 할 때 사용</h3>
+
+    <div id="div-bg">
+        테스트
+    </div>
+    <br><br>
+
+    <h3>2. 배경 이미지 테스트</h3>
+    <div id="bg-img"></div>
+
+    <br><br><br><br><br><br><br><b><br></b>
+
+
+
+</body>
+</html>

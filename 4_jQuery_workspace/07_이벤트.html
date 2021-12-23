@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h1>이벤트 핸들러(이벤트 발생시 실행될 function) 연결 방법 종류</h1>
+
+    <h3>1. click / dblclick 이벤트</h3>
+    <!--$("선택자").이벤트메소드(function(){
+        해당 요소에 해당 이벤트 발생시 실행할 내용
+        });
+-->
+
+    <h4 id="test1">클릭하세요.</h4>
+
+    <script>
+        $(function(){
+
+            $("#test1").click(function(){
+                $(this).html("더블클릭하세요");
+                //$(this).text("<i>더블클릭하세요</i>");
+            });
+
+            //더블클릭하면 클릭메소드가 먼저 한번 실행되고 이 메소드가 실행됨
+            $("#text1").dblclick(function(){
+                $(this).css("color", "red");
+            });
+        });
+    </script>
+<br><br>
+
+    <h3>2. on 메소드</h3>
+    <!--$("상위요소선택자").on("이벤트명", "하위요소선택자", function(){
+        선택된 상위요소 안에 존재하는 해당 하위요소에 해당 이벤트가 발생했을 때 실행할 내용
+        });
+-->
+
+    <div id="wrap">
+        <h4>h4 클릭</h4> <!--this 선택된 요소-->
+        <h5>h5클릭</h5>
+    </div>
+
+    <script>
+        $(function(){
+
+            $("#wrap").on("click", "h4", function(){
+                alert("클릭되었습니다.");
+                $(this).html("h4 클릭됨"); 
+            //  $(this).text("h4 클릭됨");//h4 클릭 -->h4클릭됨 내용변경
+            });
+
+            $("#wrap h5").on("click", function(){
+                alert("클릭되었습니다.");
+                $(this).css("color", "blue"); 
+            });
+        })
+    </script>
+    <br><br><hr>
+
+    <h3>3. 동적으로 만들어진 요소 이벤트 적용하기</h3>
+    <!--동적으로 만들어진 요소: 처음에는 문서 로딩시 없다가 나중에 새로 만들어진 요소-->
+
+    <div id="wrap2" style="border: 1px solid blue;">
+        <h6>기존에 존재하는 요소</h6>
+    </div>
+
+    <script>
+        $(function(){
+
+            $("wrap2").on("click", "h6", function(){
+                $("wrap2").append("<h6> 동적으로 만들어진 요소");
+            });
+        });
+    </script>
+    <br><br><hr>
+
+    <h3>4.키보드 관련 이벤트</h3>
+    <!--
+        1.  keydown/ keypress: 키가 눌려질 때 발생하는 이벤트
+            keydown: 키보드의 모든 키가 눌려질 때 발생됨
+            keypress: 키보드의 평션키, 기능키, 한글 제외한 나머지 키가 눌려질 때 발생됨
+        1.  keyup: 키가 떼어질 때 발생되는 이벤트
+    -->
+
+    <input type="text" id="test4">
+
+    <script>
+        $(function(){
+
+        });
+    </script>
+
+    <h3>4.글자 수 세기</h3>
+    <div> 
+        50자 내로 작성하시오<br>
+        <textarea  id="content" cols="30" rows="10" maxlength="50"></textarea>
+        <br>
+        <span id="count">0</span> / 50
+    </div>
+
+    <script>
+        $(function(){
+            $("#content").keyup(function(){
+                //var inputLength = $(this).val();
+                //inputLength.length;
+                var inputLength = $(this).val().length;
+                $("#count").text(inputLength);
+            })
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>6. BOM</title>
+</head>
+<body>
+    <h1>BOM(Browser object model</h1>
+    <!--
+        location은 웹 브라우저의 주소 표시 영역을 나타내는 객체임
+        현재 웹 브라우저의 웹 문서를 다른 문서들로 교체(이동) 가능
+    -->
+    <h3> 1. location 객체</h3>
+
+    <button onclick="locatiion.href='http://www.naver.com'";>네이버로 이동</button><br>
+
+    <!--a 태그는 애초에 클릭시 요청할 url을 작성할 수 있는 href 속성을 제공함-->
+    <a href="http://www.naver.com">a 태그로 이동</a><br><br>
+
+    아이디: <input type="text"><br>
+    비밀번호: <input type="text"><br>
+    <!--현재 문서 다시 로드-->
+    <button onclick="location.reload();">새로고침</button>
+    <br><br>
+
+    <!--navigator 객체는 현재 실행중인 브라우저에 대한 정보를 나타냄
+    console.log(navigator.appCodeName); ==>Mozilla
+    console.log(navigator.appName);     ==>Netscape
+-->
+    <h3>2. navigator 객체</h3> //잘 안씀
+    <button onclick="console.log(navigator);">navigator 객체확인</button><br>
+
+    <!--history 객체는 현재 웹 브라우저의 히스토리 정보를 제공함-->
+    <h3>3. history 객체</h3>
+    <!--별도 진행-->
+
+
+    <!--screen 객체는 현재 웹 브라우저가 실행되는 운영체제의 화면 
+        즉, 컴퓨터 모니터에 대한 정보를 가지고 있는 객체임-->
+    <h3>4. screen 객체</h3>
+    <button onclick="test1();">확인</button>
+
+    <script>
+        function test1() {
+            var win1 = window.open('','', 'width=300, height=300');
+        /* alert(scree.width);
+            alert(screen.height)         */
+            var width = screen.width /4;
+            var height = screen.height/4;
+
+            win1.resizeTo(width, height);
+        }
+    </script>
+
+
+
+
+</body>
+</html>

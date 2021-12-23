@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.기타 선택자</title>
+
+    <!--스타일 정보만을 따로 관리하는 .css 외부문서를 만들고
+        link를 통해 연결시켜주는 방법-->
+    <link href="resources/css/stylesheet.css" rel="stylesheet">
+
+</head>
+<body>
+    
+    <h3>1. id선택자</h3>
+    <p id="test1">외부문서 css 테스트</p>
+
+    <h3>2. 자손 선택자와 후손 선택자</h3>
+    <!--
+        1) 자손선택자(>): 바로 하위인 요소들
+        2) 후손선택자(공백): 하위 요소들 전부
+    -->
+
+    <div id="test2">
+        <h4>div의 자손이면서 후손</h4>
+        <h4>div의 자손이면서 후손</h4>
+        <ul>div의 자손이면서 후손
+            <li>ul의 자손이면서 div의 후손</li>
+            <li>ul의 자손이면서 div의 후손</li>
+        </ul>
+    </div>
+    <hr>
+
+    <h3>2. 동위(같은레벨) 선택자</h3>
+    <!--동위 관계(같은레벨)에 있는 뒤에 위치한 특정 요소를 선택할 때 사용-->
+    <div id="test3" class="classTest1">div</div>
+    <div>div2</div>
+    <div>div3</div>
+    <div class="classTest1">div4</div>
+        <ul>ul요소</ul>    
+    <p>p태그</p>
+    <div>이것도 포함</div>
+    <hr>
+
+    <h3>4. 반응선택자</h3>
+    <!--사용자의 움직임에 따라 선택이 되고 안되는 선택자
+        1)active: 해당요소에 클릭이 되었을 경우 스타일 부여
+        2)hover: 해당 요소에 마우스가 올라가는 순간 스타일 부여-->
+
+    <div id="active-test" class="area">active 테스트</div><br>
+    <div id="hover_test" class="area">hover 테스트</div>
+
+
+</body>
+</html>

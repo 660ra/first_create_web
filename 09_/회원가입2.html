@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link href="resources/css/stylesheet.css" rel="stylesheet"> 
+
+    <script>
+      
+    </script>
+
+</head>
+<body>
+    <div class="div2">
+    <h2>회원가입</h2>
+    <form id="join" action="test.do" method="post" name="joinForm">
+      <fieldset>
+        <legend>기본정보</legend>
+        <label>사용자 ID</label>
+        <input type="hidden"    name="reid">
+
+        <input type="text"      id="id" name="id"    size="30"   placeholder="아이디 10글자 이내" >
+        <input type="button"  onclick="check();"  value="중복 체크"  class="dup" ><br>
+        <label>비밀번호</label> 
+        <input type="비밀번호"  id="pwd" name="pwd" size="30" placeholder="영문,숫자,특수문자 포함 8자 이상" ><br> 
+        <label>비밀번호확인</label> 
+        <input type="비밀번호 확인" id="pwdCheck" size="30" name="pwdCheck"><br> 
+        <label>이름</label>
+        <input type="text"      name="name"><br> 
+        <label>E-Mail</label>
+        <input type="text"      name="email" >
+        <select name="emailAddr">
+            <option value="" selected>직접입력</option>
+            <option value="naver">naver.com</option>
+            <option value="gmail">gmail.com</option>
+            <option value="daum">daum.net</option>
+        </select>
+
+        <br>        
+      </fieldset>
+
+      <fieldset>
+        <legend>선택사항</legend>
+        <label>우편번호</label> 
+        <input type="text"       name="zipNum"   size="10" >      
+        <input type="button"  onclick="find();"   value="주소 찾기" class="dup"><br>
+        <label>주소</label> 
+        <input type="text"        name="addr1"   size="30">
+        <input type="text"        name="addr2"   size="20"> <br>
+        <label>전화번호</label> 
+        <input  type="text"       name="phone" placeholder=" '-' 빼고 입력" ><br>
+      </fieldset>
+      
+      <button type="button" onclick="test();" class="submit" > <a href="#">회원가입</a></button> 
+      <button type="reset" class="cancel"> <a href="#">취소</a></button>        
+      
+      <script>
+        function test() {
+          var id = document.getElementById("id").value;
+            if (id.length ==""){
+              alert("아이디는 필수 입력 사항입니다.")
+              return;
+            }else if(id.length>10) {
+              alert("아이디 10글자 이내만 가능합니다.")
+              return;
+            }
+          var pwd = document.getElementById("pwd").value;
+          var pwdCheck = document.getElementById("pwd").value;
+          if (pwd.length =="" || pwdCheck.length == ""){
+            alert("비밀번호는 필수 입력사항입니다.")
+            return;
+          } else if (pwd.length<8){
+              alert("비밀번호는 8글자 이상이여만 가능합니다.")
+              return;
+            }
+        }
+        function find() {
+          window.open("https://unipass.customs.go.kr/csp/com/bsopcomn/baseinfo/otsd/COM0101042Q.do?reqForm=MYC1102011S_custPsno%7CMYC1102011S_custBscsAddr%7CMYC1102011S_custRoadNmCd%7CMYC1102011S_custBldgMtNo&reqValue=psno%7CaddrRoadNm%7CroadNmCd%7CbldgMtNo&psno", "새창",
+                        "width = 500, height=500")
+        }
+      </script>
+    </form>
+</div>
+</body>
+</html>

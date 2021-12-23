@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+    <h3>1.checked 상태 선택자(radio, checkbox)</h3>
+
+    취미: 
+    <input type="checkbox" name="hobby" value="game" >게임
+    <input type="checkbox" name="hobby" value="movie">영화
+    <input type="checkbox" name="hobby" value="music">음악
+    <br>
+
+    <button type="button" id="text1">크기줄임</button>
+
+    <script>
+        $(function(){
+            $(":checkbox").change(function(){
+               // console.log("변경됨");
+
+               //prop: attr랑 비슷함 (radio와 checkbox는 prop으로 사용해야 먹힘)
+               if($(this).prop("cheked")){
+                    $(this).css({width:"30px",height:"30px"}); //초기화시킴
+               } else {
+                    $(this).css({width:"",height:""}); //초기화시킴
+               }
+            });
+        });
+    </script>
+    <br><br>
+    <hr>
+
+    <h3>2.selected 상태 선택자</h3>
+    자동차:
+    <select id="sel" onchange="change2();">
+    <option value="아우디">Audi</option>
+    <option value="BMW">BMW</option>
+    <option value="벤츠">Benz</option>
+    <option value="볼보">Volvo</option>
+    </select>
+    
+    <button type="button" onclick="test2();">확인</button>
+    <br>
+    선택한 자동차: <label id="result">선택안함</label>
+
+    <script>
+        // 자바스크립트
+        /*
+        function change2() {
+            var car = document.getElementById("sel").value;
+            alert("홍길동님은 " + car+ "의 차를 선택하셨습니다.")
+        } 
+        */
+
+        //제이쿼리_select 변경했을 때 이벤트
+        function change2() {
+            var val = $("option:selected").val(); //값 get
+            //console.log(val);
+            var txt = $("option:selected").text(); //내용 set
+            //console.log(txt);
+
+            $("#result").html(val);
+        }
+
+        //제이쿼리_확인 버튼 클릭시 이벤트
+        function test2() {
+            var val = $("option:selected").val(); //값 get
+            var txt = $("option:selected").text(); //내용 set
+
+            $("#result").text(txt);
+        }
+    </script>
+    <br><br>
+    <hr>
+
+    <h3>3.disabled,enabled 상태 선택자</h3>
+
+    <div id="div1">
+        활성화 텍스트상자: <input type="text"><br>
+        비활성화 텍스트상자: <input type="text" disabled><br><br>
+
+        활성화 버튼: <input type="button" value="활성화 버튼"><br>
+        비활성화 버튼: <input type="button" value="비활성화 버튼" disabled><br>
+    </div>
+    <br>
+
+    <script>
+        //jquery load
+        $(function(){
+            $("#div1 :disabled").css("backgroundColor", "lightgrey")
+        });
+    </script>
+</body>
+</html>

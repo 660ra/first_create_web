@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #area{
+            width: 400px;
+            height: 150px;
+            border: 2px solid gray;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>HTML 요소 접근</h2>
+
+    아이디: <input type="text" placeholder="태그 이름으로 접근"><br><br>
+    비밀번호: <input type="text" id="userPw" placeholder="name값으로 접근"><br><br>
+    전화번호: <input type="text" name="phone" placeholder="name값으로 접근"><br><br>
+    <br>
+
+    <button onclick="testInput();">출력하기</button><br><br>
+    <div class="area" id="area"></div>
+
+    <script type="text/javascript">
+        function testInput() {
+            var ID = document.getElementsByTagName("input")[0].value;
+            var PW = document.getElementById("userPw").value;
+            var PHONE = document.getElementsByName("phone")[0].value;
+
+            var area =document.getElementById("area");
+
+            area.innerHTML ="";
+            area.innerHTML = "아이디: " + ID +"님<br>";
+            area.innerHTML += "비밀번호: " +PW + "이며<br>";
+            area.innerHTML += "전화번호: "+PHONE + "입니다.";
+        }
+
+        //자바기준 (변수는 한나의 값만 저장 가능)
+        int a =20;
+        a=30;
+        result: a=30;
+
+        //배열 (동일한 타입으로 여러개 값 저장 가능)
+        int[] a=[20,30,...];
+        a[0] -> 20
+        a[1] -> 30
+    </script>
+
+</body>
+</html>

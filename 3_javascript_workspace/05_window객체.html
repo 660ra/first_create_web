@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>window 객체</h1>
+    <!-- window 객체는 자바스크립트의 최상위 객체이며 크게 
+        1) BOM(Browser Object Model): location(브라우저), screen(화면)
+                                      navigator(브라우저->사용잘x), history(기록)
+        2) DOM(Documnent Object Model): document.getElmentById,...
+    -->
+
+    <h3>1. [window.]open("url", "창이름", "창의 특성");</h3>
+    <button onclick="test1();">팝업창 열기</button>
+    <button onclick="test2();">팝업창 닫기</button>
+
+    <script>
+        function test1() {
+            window.open("http://www.naver.com", "새창", "width=500, height=500")
+        }
+        function test2() {
+            var win1 = window.open("http://www.naver.com", "새창", "width=500, height=500")
+            win1.close();
+        }
+    </script>
+
+</body>
+</html>

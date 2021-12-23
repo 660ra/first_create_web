@@ -1,0 +1,55 @@
+#test1{
+    color: blue;
+}
+
+/*자손선택자와 후손선택자
+    1) 자손선택자(>): 바로 하위인 요소들
+    2) 후손선택자(공백): 하위 요소들 전부*/
+
+
+    #test2>h4{
+    background-color: cadetblue;
+}
+
+    #test2>ul>li{
+        background-color: coral;
+    }
+    #test2 li{
+        color: cornsilk;
+    }
+
+/* <div id="test3">div</div>
+    <div>div2</div>
+    <div>div3</div>
+    <div>div4</div>
+        <ul>ul요소</ul>    
+    <div>이것도 포함</div> */
+
+    /* a(id="test3")+b(div2): a요소 뒤에 b요소 하나만을 선택*/
+    #test3+div{
+        background-color: darkmagenta;
+    }
+
+    /* ul이 바로 뒤에 온게 아니라 css반영안됐음*/
+    #test3+ul{
+        background-color: darkslategray;
+    }
+    #test3+p{
+        background-color: dimgray;
+    }
+    
+.area {
+        background: dimgray;
+        width: 100px;
+        height:100px;
+        cursor:pointer;
+    }
+
+    #active-test:active{
+        background: yellow;
+        color: violet;
+    }
+    #hover_test:hover{
+        background: yellowgreen;
+        color: white;
+    }

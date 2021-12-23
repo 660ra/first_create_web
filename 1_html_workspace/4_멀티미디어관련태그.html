@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. 멀티미디어 관련 태그</title>
+</head>
+<body>
+    
+    <h1>1. 이미지 태그</h1>
+    <img src="1_html_workspace/resources/image/img1.png" alt="이 사진은 트리 사진입니다">
+    <hr>
+
+    <h3> 1) 고정길이단위(px): 화면사이즈가 조정이 돼도 이미지의 크기는 변동 없음</h3>
+    <img src="1_html_workspace/resources/image/img1.png" width="200px" height="150px">
+    <img src="1_html_workspace/resources/image/img2.png" width="200px" height="150px">
+
+    <h3> 2) 가별길이단위(%) : 화면사이즈에 따라 이미지 크기도 같이 변동됨</h3>
+    <img src="1_html_workspace/resources/image/img1.png" width="15%" height="150px">
+    <img src="1_html_workspace/resources/image/img2.png" width="15%" height="150px">
+
+    <h1>2. 오디오 태그</h1>
+    <!-- 오디오 안보임 -->
+    <audio src="1_html_workspace/resources/audio/audio1.mp3"></audio>
+
+    <!-- 오디오 controls 써야지 화면에 보여짐-->
+    <audio src="1_html_workspace/resources/audio/audio1.mp3" controls autoplay></audio>
+
+    <h3>3. 비디오 태그</h3>
+    <!--오디오 태그와 속성 비슷, poster 속성 하나가 더 추가되어 있음-->
+    <video src="1_html_workspace/resources/video/video1.mp4" controls width="400px" height="200px"
+    poster="1_html_workspace/resources/image/img1.png"></video>
+    
+</body>
+</html>

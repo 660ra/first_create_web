@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    
+</head>
+<body>
+   <!--
+    jQuery 를 사용하다 보면 태그들의 속성값을 정의하거나 가져오기 위해 .attr() 함수를 사용하는 경우가 많을 것이다.
+    런데 jQuery 1.6 이후 부터 .attr() 함수가 용도에 따라 .attr() 과 .prop() 으로 분리 되었다.
+    .attr() : html 의 속성(attribute)을 다룬다.
+    .prop() : javascript 프로퍼티(property)를 다룬다.
+    
+    attr() : element 가 가지는 속성값이나 정보를 조회(style, src, rowspan 등) 하거나 세팅할 때 사용
+    ==> html attribute 값이 모두 String으로 넘어온다. 
+
+    prop(): element 가 가지는 실제적인 상태(활성화, 체크, 선택여부 등) 제어할 때 사용
+    ==> javascript 프로퍼티값이 넘어오기 떄문에 date, function, boolean 형식으로도 가져올수 있다.    
+    -->
+
+
+    <!-- 
+    1) 자바스크립트 -> 직접 . 속성에 접근
+        .style 스타일 속성
+        .value
+        .innerHTML
+        .innerText
+
+    2) jQuery => 메소드를 이용해서
+        .css("스타일속성" , "값")
+        .val("값") = set , val() = get
+        .html("값") = set , html() = get
+        .text("값") = set , text() = get
+        .attr("속성", "속성값")
+        .addClass("추가할 클래스값")
+        .removeClass("제거할 클래스 값")
+    -->
+
+    <h1>Content 영역(innerHTML, innerText) 관련 메소드</h1>
+
+    <h3>1. html(["문구"]) 메소드 (=innerHTML)</h3>
+    <!-- 
+        선택된 요소의 content영역(시작태그와 종료태그 사이)을 리턴해주거나 또는 변경해주는 메소드 
+         1. $("선택자").html() : 선택된 요소의 content영역 값을 반환해줌 (이 때 html태그까지 포함) 
+         2. $("선택자").html("문구") : 선택된 요소의 content영역 값을 해당 문구로 변경해줌
+                                    (전달하는 문구에 html태그가 있을 경우 태그로써 해석해줌)
+    -->
+
+    <h4 id="test1"> 
+        <a href="http://www.naver.com">네이버 이동</a> 
+    </h4>
+
+    <h4 id="test2"> </h4>
+
+    <script>
+        $(function(){
+
+            //1.자바스크립트
+            var temp1  = document.getElementById("test1").innerHTML;
+            console.log("자바스크립트: "+temp1); 
+            //document.getElementById("test2").innerHTML = temp1;
+
+            //2.jquery
+            var temp2 = $("#test1").html();     // "<a>네이버 이동</a>"  
+            console.log("jquery: "+temp2);           
+            $("#test2").html(temp2);
+        })
+    </script>
+
+    <br><br>
+    <hr>
+    
+    <h3>2. text(["문구"]) 메소드 (=innerText)</h3>
+   <!-- 
+        선택된 요소의 content영역의 텍스트만 리턴해주거나 변경해주는 메소드
+        1. $("선택자").text() : 선택된 요소의 content영역 반환해줌  (단, html 태그는 무시하고 텍스트만) 
+        2. $("선택자").text("문구") : 선택된 요소의 content내용을 전달값 변경해줌   (단, html태그로 해석안됨)
+   -->
+
+    <h4 id="test3">
+        <a href="http://www.google.com">구글로 이동</a>
+    </h4>
+
+    <h4 id="test4">
+    </h4>
+
+    <script>
+        $(function(){
+
+            //1.자바스크립트
+            var temp1  = document.getElementById("test3").innerText;
+            console.log("자바스크립트: "+temp1); 
+            //document.getElementById("test2").innerHTML = temp1;
+
+            //2.jquery
+            var temp4 = $("#test3").text();  //"구글로 이동"
+            console.log(temp4); 
+            
+            $("#test4").text(temp4 );
+            //$("#test4").text("<a>" + temp4 + "</a>");
+    
+        })
+    </script>
+ <br><br>
+ <hr>
+
+
+    <!--- 
+
+            // 해당 function이 호출 될때마다
+            // 첫번째 인자값으로는 순차적으로 접근하는 요소의 인덱스 수 전달
+            // 두번째 인자값으로는 순차적으로 접근하는 요소의 
+            //content 영역값(innerHTML속성값) 전달
+    -->
+
+    <h3>3. html(["문구"]) 메소드 (함수호출)</h3>
+    <!-- ♥♥♥♥♥ KHJ:  .class1{test$}*3  -->
+    <div class="class1">test1</div>
+    <div class="class1">test1</div>
+    <div class="class1">test1</div>
+
+    <script>
+        $(function(){
+
+            //♥♥♥♥♥ KHJ: 매개변수 한개만 전달 가능. 그러나 첫번째는 무조건 index 자리임
+            $(".class1").html(function(index, val){
+                return "<h4>인덱스 : " + index + ", content내용 : " + val + "</h4>";
+            })
+
+        })
+    </script>
+    <br><br>
+    <hr>
+
+    <h3>4. text(["문구"]) 메소드 (함수호출)</h3>  
+
+    <div class="class2">test2</div>
+    <div class="class2">test2</div>
+    <div class="class2">test2</div>
+
+    <script>
+        $(function(){
+
+            $(".class2").text(function(index, val){
+                return "<h4>인덱스 : " + index + ", 내용 : " + val + "</h4>";
+            });
+
+
+        })
+    </script>
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>

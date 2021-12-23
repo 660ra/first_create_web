@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7.레이아웃 관련 스타일</title>
+
+    <style>
+        .size-test{border: 10px solid rgb(136, 54, 54)}
+        
+        #test1{width: 400px; height: 200px;}
+        #test2{width: 50%; height: 150px;}
+
+        .display-test{
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+        }
+        .red{background: red;}
+        .yellow{background: yellow;}
+        .pink{background: pink;}
+        .green{background: green;}
+        .purple{background: purple;}
+
+        /* inline으로 하는 순간 기존에 width, height 속성 무시됨 */
+        .inline{display: inline;}
+
+        /* inline-block은 width, height 속성이 적용됨 */
+        .inline-block{display: inline-block;}
+
+        /* block은 width, height 속성이 무시됨
+            block하면 밑으로 내려옴 */
+        .block{display: block;}
+
+    </style>
+
+
+</head>
+<body>
+
+    <h1>레이아웃 관련 스타일</h1>
+    <h2>1.width, height</h2>
+
+    <h4>고정크기(px)</h4>
+    <div id="test1" class="size-test"></div>
+    <br>
+
+    <h4>가변길이(%)</h4>
+    <div id="test2" class="size-test"></div><br><hr>
+
+<!--블럭요소: 한 줄 단위로 영역 잡힘/줄바꿈 발생함(div, p, pre, h..
+    인라인요소: 컨텐츠(contents)부분만 영역 잡힘/옆으로 배치됨(span, label, input, img...))-->
+
+    <h2>2. display: 화면 배치 방법 변경</h2>
+    <h3>1. display: inline</h3>
+    <div class="display-test inline red">첫번째 영역</div>
+    <div class="display-test inline yellow">두번째 영역</div>
+    <div class="display-test inline pink">세번째 영역</div>
+    <div class="display-test inline green">네번째 영역</div>
+    <div class="display-test inline purple">다섯번째 영역</div>
+<br><br>
+
+    <h3>2. display: inline-block</h3>
+    <div class="display-test inline-block red">첫번째 영역</div>
+    <div class="display-test inline-block yellow">두번째 영역</div>
+    <div class="display-test inline-block pink">세번째 영역</div>
+    <div class="display-test inline-block green">네번째 영역</div>
+    <div class="display-test inline-block purple">다섯번째 영역</div>
+<br><br>
+
+    <h3>3. display:block</h3>
+    <span class="display-test block red">첫번째 영역</span>
+    <span class="display-test block yellow">두번째 영역</span>
+    <span class="display-test block pink">세번째 영역</span>
+    <span class="display-test block green">네번째 영역</span>
+    <span class="display-test block purple">다섯번째 영역</span>
+
+<br><br><br><br><br><br><br><br><br><br>
+    
+</body>
+</html>
